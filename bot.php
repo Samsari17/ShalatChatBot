@@ -9,8 +9,8 @@ Modified @ Farzain - zFz
 require_once('./line_class.php');
 require_once('./unirest-php-master/src/Unirest.php');
 
-$channelAccessToken = 'YOUR-CHANNEL-ACCESS-TOKEN'; //sesuaikan 
-$channelSecret = 'YOUR-CHANNEL-SECRET-CODE';//sesuaikan
+$channelAccessToken = '+429/0wI2Kf5Sn/r2OMNB0mZSdec2edkZ0uedugVmjKVM1CYfEZWY9MvYqrc6s9TPt8GiL7jQq/6yP2ASBk19mEAPjLfE4+8qgIS25SM/2JMEhrvWxwDPyhiWQLtDp8pY/WgSwbLHIuLuFl4KdlSKgdB04t89/1O/w1cDnyilFU='; //sesuaikan 
+$channelSecret = 'd0fd716b845f3b1a7e85c23e3efd6843';//sesuaikan
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 
@@ -89,10 +89,87 @@ if($message['type']=='text') {
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
+                array (
+  'type' => 'template',
+  'altText' => 'this is a carousel template',
+  'template' => 
+  array (
+    'type' => 'carousel',
+    'columns' => 
+    array (
+      0 => 
+      array (
+        'thumbnailImageUrl' => 'https://example.com/bot/images/item1.jpg',
+        'imageBackgroundColor' => '#FFFFFF',
+        'title' => 'this is menu',
+        'text' => 'description',
+        'defaultAction' => 
+        array (
+          'type' => 'uri',
+          'label' => 'View detail',
+          'uri' => 'http://example.com/page/123',
+        ),
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'postback',
+            'label' => 'Buy',
+            'data' => 'action=buy&itemid=111',
+          ),
+          1 => 
+          array (
+            'type' => 'postback',
+            'label' => 'Add to cart',
+            'data' => 'action=add&itemid=111',
+          ),
+          2 => 
+          array (
+            'type' => 'uri',
+            'label' => 'View detail',
+            'uri' => 'http://example.com/page/111',
+          ),
+        ),
+      ),
+      1 => 
+      array (
+        'thumbnailImageUrl' => 'https://example.com/bot/images/item2.jpg',
+        'imageBackgroundColor' => '#000000',
+        'title' => 'this is menu',
+        'text' => 'description',
+        'defaultAction' => 
+        array (
+          'type' => 'uri',
+          'label' => 'View detail',
+          'uri' => 'http://example.com/page/222',
+        ),
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'postback',
+            'label' => 'Buy',
+            'data' => 'action=buy&itemid=222',
+          ),
+          1 => 
+          array (
+            'type' => 'postback',
+            'label' => 'Add to cart',
+            'data' => 'action=add&itemid=222',
+          ),
+          2 => 
+          array (
+            'type' => 'uri',
+            'label' => 'View detail',
+            'uri' => 'http://example.com/page/222',
+          ),
+        ),
+      ),
+    ),
+    'imageAspectRatio' => 'rectangle',
+    'imageSize' => 'cover',
+  ),
+)
             )
         );
     }
