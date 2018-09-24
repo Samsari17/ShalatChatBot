@@ -73,23 +73,7 @@ if ($type == 'join' || $command == '/menu') {
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => $text
-            )
-        )
-    );
-}
-
-//pesan bergambar
-if($message['type']=='text') {
-	    if ($command == '/shalat') {
-
-        $result = shalat($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array (
+            array (
   'type' => 'template',
   'altText' => 'this is a carousel template',
   'template' => 
@@ -170,6 +154,23 @@ if($message['type']=='text') {
     'imageSize' => 'cover',
   ),
 )
+        )
+    );
+}
+
+//pesan bergambar
+if($message['type']=='text') {
+	    if ($command == '/shalat') {
+
+        $result = shalat($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+		array(
+               	 	'type' => 'text',
+               	 	'text' => $text
+           	 )
+                
             )
         );
     }
